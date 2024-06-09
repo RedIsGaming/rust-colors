@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "rust-colors"
+]
+resolver = "2"
