@@ -1,5 +1,9 @@
 [workspace]
-members = [
-    "rust-colors"
-]
+members = ["rust-colors"]
 resolver = "2"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3
