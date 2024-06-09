@@ -1,32 +1,32 @@
 use std::fmt;
 
-#[derive(Debug)]
-pub enum Colors {
-    Black,
-    Red,
-    Green,
-    Yellow,
-    Blue,
-    Purple,
-    Cyan,
-    White,
-    Default,
+macro_rules! colors {
+    ($($name:ident, $value:expr);*;) => {
+        #[derive(Debug, PartialEq)]
+        enum Colors {
+            $($name,)*
+        }
+
+        impl Colors {
+            fn assign(&self) -> &str {
+                match *self {
+                    $(Colors::$name => $value,)*
+                }
+            }
+        }
+    };
 }
 
-impl Colors {
-    pub fn assign(&self) -> &str {
-        match *self {
-            Colors::Black => "[30m",
-            Colors::Red => "[31m",
-            Colors::Green => "[32m",
-            Colors::Yellow => "[33m",
-            Colors::Blue => "[34m",
-            Colors::Purple => "[35m",
-            Colors::Cyan => "[36m",
-            Colors::White => "[37m",
-            Colors::Default => "[0m",
-        }
-    }
+colors! {
+    Black, "[30m";
+    Red, "[31m";
+    Green, "[32m";
+    Yellow, "[33m";
+    Blue, "[34m";
+    Purple, "[35m";
+    Cyan, "[36m";
+    White, "[37m";
+    Default, "[0m";
 }
 
 #[derive(Debug)]
