@@ -1,6 +1,6 @@
 [package]
 name = "rust-colors"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["RedIsGaming"]
 edition = "2021"
 description = "A library for parsing ANSI Strings to colors."
@@ -8,5 +8,6 @@ license = "MIT"
 documentation = "https://docs.rs/rust-colors"
 homepage = "https://redisgaming.vercel.app/"
 repository = "https://github.com/RedIsGaming/rust-colors"
+readme = "../README.md"
 
 [dependencies]
