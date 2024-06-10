@@ -1,28 +1,25 @@
 # rust-colors
 A library for parsing ANSI Strings to colors. Built in Rust, open source and easy to use. Underneath are some examples of how you could use the functions.
 
-> You can reach out to me on Discord: [RedIsGaming](https://discordapp.com/users/724341024415285319)<br/>
+You can reach out to me on Discord: [RedIsGaming](https://discordapp.com/users/724341024415285319)<br/>
 
 ## Example color functions main program
 Here is an example of how the main program can look:
-```rs
-use rust_colors::{Ansi, Color};
+```rust
+use rust_colors::{Ansi, Color, Colors};
 
 fn main() {
     let colors = Ansi;
-    
+
     println!(
-        "Roses are {}, the sky is {}, I like {} vegetables, but the color {} is even better!",
-        colors.red("red"),
-        colors.blue("blue"),
-        colors.green("green"),
-        colors.black("black"),
+        "The sky is {}, apples can be {}, do you like to touch {} grass?",
+        colors.color("blue", Colors::Blue),
+        colors.bold_color("red", Colors::Red),
+        colors.underline_color("green", Colors::Green),
     );
 }
 
 ```
-
-> Roses are <span style="color: rgb(255, 85, 0)">"red"</span>, the sky is <span style="color: rgb(0, 140, 255)">"blue"</span>, I like <span style="color: rgb(0, 200, 0)">"green"</span> vegetables, but the color <span style="color: rgb(130, 130, 130)">"black"</span> is even better!
 
 ## Author
 [RedIsGaming](https://github.com/RedIsGaming/)
@@ -42,9 +39,9 @@ fn main() {
 [MIT license](LICENSE)
 
 ## Status
-> <br/>
-> <span style="color: #0F9;">rust-colors last updated on 9-6-2024.</span><br/>
-> <ins style="font-size: 0px;">.</ins>
+<br/>
+<span style="color: #0F9;">rust-colors last updated on 10-6-2024.</span><br/>
+<ins style="font-size: 0px;">.</ins>
 
 ## Contact
 [Discord](https://discordapp.com/users/724341024415285319)
@@ -66,27 +63,22 @@ cargo run
 Here is a quick overview of functions that are applied for this project:
 
 ### Struct
-```rs
+```rust
 #[derive(Debug)]
 pub struct Ansi;
 ```
 
 ### Trait
-```rs
+```rust
 pub trait Color<T: fmt::Debug> {
     type Transform;
 }
 ```
 
 ### Trait functions
-```rs
+```rust
 //Required functions:
-fn black(&self, txt: T) -> Self::Transform;
-fn red(&self, txt: T) -> Self::Transform;
-fn green(&self, txt: T) -> Self::Transform;
-fn yellow(&self, txt: T) -> Self::Transform;
-fn blue(&self, txt: T) -> Self::Transform;
-fn purple(&self, txt: T) -> Self::Transform;
-fn cyan(&self, txt: T) -> Self::Transform;
-fn white(&self, txt: T) -> Self::Transform;
+fn color(&self, txt: T, color: Colors) -> Self::Transform;
+fn bold_color(&self, txt: T, bold_color: Colors) -> Self::Transform;
+fn underline_color(&self, txt: T, underline_color: Colors) -> Self::Transform;
 ```

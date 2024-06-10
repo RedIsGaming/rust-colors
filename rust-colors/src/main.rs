@@ -1,13 +1,12 @@
-use rust_colors::{Ansi, Color};
+use rust_colors::{Ansi, Color, Colors};
 
 fn main() {
     let colors = Ansi;
-    
+
     println!(
-        "Roses are {}, the sky is {}, I like {} vegetables, but the color {} is even better!",
-        colors.red("red"),
-        colors.blue("blue"),
-        colors.green("green"),
-        colors.black("black"),
+        "The sky is {}, apples can be {}, do you like to touch {} grass?",
+        colors.color("blue", Colors::Blue),
+        colors.bold_color("red", Colors::Red),
+        colors.underline_color("green", Colors::Green),
     );
 }

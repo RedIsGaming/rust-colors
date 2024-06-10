@@ -1,4 +1,4 @@
-macro_rules! colors {
+macro_rules! color {
     ($($name:ident, $value:expr);*;) => {
         #[derive(Debug, PartialEq)]
         pub enum Colors {
@@ -15,7 +15,7 @@ macro_rules! colors {
     };
 }
 
-colors! {
+color! {
     Black, "[30m";
     Red, "[31m";
     Green, "[32m";
