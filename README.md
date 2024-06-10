@@ -21,6 +21,20 @@ fn main() {
 
 ```
 
+## rust-colors options to choose from
+```rust
+Colors::Black,
+Colors::Red,
+Colors::Green,
+Colors::Yellow,
+Colors::Blue,
+Colors::Purple,
+Colors::Cyan,
+Colors::White,
+Colors::Default,
+
+```
+
 ## Author
 [RedIsGaming](https://github.com/RedIsGaming/)
 
@@ -57,28 +71,4 @@ Then switch to that directory and run Cargo.
 ```shell
 cd rust-colors
 cargo run
-```
-
-## Color functions rust-colors(ANSI)
-Here is a quick overview of functions that are applied for this project:
-
-### Struct
-```rust
-#[derive(Debug)]
-pub struct Ansi;
-```
-
-### Trait
-```rust
-pub trait Color<T: fmt::Debug> {
-    type Transform;
-}
-```
-
-### Trait functions
-```rust
-//Required functions:
-fn color(&self, txt: T, color: Colors) -> Self::Transform;
-fn bold_color(&self, txt: T, bold_color: Colors) -> Self::Transform;
-fn underline_color(&self, txt: T, underline_color: Colors) -> Self::Transform;
 ```
